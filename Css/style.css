@@ -1,0 +1,342 @@
+* {
+    /* font-family: 'Montserrat', sans-serif; */
+    font-family: 'Black Ops One', cursive;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;    /* deixa todos os elementos com o limite da borda correto */
+}
+
+body {
+    background-color: aquamarine;
+}
+
+html {
+    min-height: 100vh;
+    position: relative;       /* altura mínima 100vh (altura da tela do usuário / 100� página total / ) */
+}
+
+main {
+    margin-bottom: 250px;    /* para dar espaçamento entre o conteúdo e o rodapé do site */
+}
+
+/* ================NAVBAR==================*/
+
+#logo {
+    position: absolute;
+    top: 10px;              /* 10px no topo */
+    Left: 9.5%;             /* 9.5�div */
+}
+
+#logo img {
+    width: 50px;            /* diminuir o tamanho da imagem para uma largura de 50px, para reposicionar o logo */
+}
+
+#navbar {
+    display: flex;                  /* para acertar os elementos */
+    align-items: center;            /* alinhar os ítens ao centro */
+    justify-content: center;        /* justificar o conteúdo ao centro também */
+    background-color: #0493a5;    /* uma cor muito próxima do preto */
+    padding: 20px;                  /* espaçamento interno da barra de navegação */
+    text-transform: uppercase;      /* os textos para caixa alta dentro da barra de navegação */
+    list-style: none;               /* vou tirar os estilos da lista */
+}
+
+#navbar li {
+  margin: 0 10px;
+  padding: 5px;
+}
+
+#navbar .nav-link {                 /* Vamos adicionar alguns estilo a classe criada */
+    color: #FFFFFF;            /* defini uma cor branca */
+    text-decoration: none;       /* vamos tirar o underline dos links */
+    transition: .5s;            /* transição de meio segundos para usar o hover */ /* tamanho da fonte */
+    font-size: 14px;            /* negrito */
+    /* font-weight: bold; */
+}
+
+#navbar .nav-link:hover {       /* hover = evento ao passar o mouse em cima do elemento */
+    color: #151F30;          /* cor que escolhi */ 
+}
+
+/*=================FOOTER==================*/
+
+footer {
+    width: 100%;                  /* 100% largura da página */
+    position: absolute;           /* posição absoluta */
+    bottom: 0;                    /* ▸ jogando ele embaixo da tela onde o rodapé fica */
+    text-align: center;           /* centralizando todo o texto dele */
+    background-color: #0593A2;  /* cor que escolhi */
+    color: #FFFFFF;             /* cor que escolhi */
+    padding: 50px 0;              /* 50 px em cima e baixo e nos lados */
+    /* font-weight: bold;            negrito */
+}
+
+/*=================HOME==================*/
+
+
+#title-container {                      /* vamos começar pelo título */
+
+    min-width: 500px;                   /* largura mínima de 500px */
+    text-align: center;                 /* texto alinhado ao centro */
+    margin-top: 30px;                   /* para afastar da barra de navegação */
+}
+
+#title-container h1 {
+
+    font-size: 50px;                    /* tamanho da fonte */
+}
+
+#title-container p {
+
+    margin-top: 10px;                   /* para afastar do título */
+    text-transform: uppercase;          /* maiúsculas */
+    color: #999;                      /* cor que defini */
+
+}
+
+#posts-container {
+
+    max-width: 1200px;                  /* largura máxima de 1200px para nas telas muito grandes os posts não ficarem isolados. Ficará só no centro */ 
+    margin: 0 auto;                     /* para poder centralizar este conteúdo */
+    margin-top: 30px;                   /* para afastar o título */
+    display: flex;                      /* atinge todos os itens dentro do container */
+    flex-wrap: wrap;                    /* para os posts ficarem um embaixo do outro quando atingir sua largura */
+
+}
+
+.post-box:first-child {
+
+    min-width: 100%;                          /* primeiro post vai ter uma largura mínima de 100� tela */
+}
+
+.post-box {                                   /* enquanto os outros posts : */
+
+    flex: 1 1 0;                              /* vão ocupar uma largura pré determinada com flex */
+    /* margin: 0 1%;                            para dar o espaçamento entre cada um deles  */
+    margin-bottom: 20px;                      /* para afastar o conteúdo */
+}
+
+.post-box:nth-child(3) {   
+
+    margin: 0 1%;
+
+}
+
+
+.post-box img {   
+
+    width: 100%;
+
+}
+
+.post-box .post-title {                         /* vamos ao título */
+
+    font-size: 24px;
+    margin: 10px 0;                             /* em cima e embaixo 10px e ◊ nas laterais */
+}
+
+.post-box .post-title a {
+
+    color: #191970;
+    transition: .5s;                            /* tag de link na cor que escolhi com transição de meio segundo para o hover */
+}
+
+.post-box .post-title a:hover {                 /* hover com a cor que defini */
+
+    color: #20B2AA;
+}
+
+.post-box .post-description {
+
+    color: #000000;
+    font-weight: bold;                          /* No conteúdo (na description) : cor e negrito */
+
+}
+
+.tags-container {
+
+    margin-top: 10px;                           /* top de 10px */
+
+}
+
+.tags-container a {                             /* para cada uma das tags a */
+
+    font-size: 14px; 
+    color: #4B0082;
+    display: inline-block;                      /* para ficar uma do lado da outra */
+    margin-right: 5px;
+    font-weight: bold;
+}
+
+
+
+/*=================POST=================*/
+
+#post-container {                               /* Vamos trabalhar com os posts individuais. id post-container da nossa main */
+
+    display: grid;                              /* deixar um do lado do outro criando os espaços deles */
+    grid-template-columns: 75% 25%;             /* uma coluna vai ter 75� outra coluna 25% que é a barra de navegação lateral */
+    grid-template-rows: auto;                   /* deixar que se ajustem no seu tamanho */
+    grid-template-areas: "main sidebar";        /* criar uma área de main sidebar = tamanho das areas */
+    grid-gap: 10px;                             /* 10px em cada coluna do grid / espaço entre eles */
+    padding-top: 30px;                          /* espaçamento interno do grid para ficar longe da barra de navegação */
+    max-width: 1200px;                          /* mesma ideia do post para centralizar o conteúdo */
+    margin: 0 auto;                             /* para centralizar */
+    margin-bottom: 250px;                       /* vamos utilizar 250px */
+
+}
+
+.content-container {
+
+    grid-area: main;                            /* para ajuste do main */
+
+}
+
+#post-description {                             /* descrição do post */
+
+    font-style: italic;                         /* itálico */
+    margin-bottom: 40px;                        /* vamos utilizar 40px */
+
+}
+
+#main-title {                                   /* para ajuste no título */
+
+    font-size: 36px;
+    margin-bottom: 30px;
+
+}
+
+.post-content {                                 /* o que está escrito dentro do post (Lorem que criamos) */
+
+    Line-height: 1.7;                           /* para melhorar a leitura do usuário no texto */
+    margin: 10px 0;                             /* em cima e embaixo */
+    text-align: justify;                        /* NÃO OBRIGATÓRIO = dependerá se você quer justificar ou não o seu texto */
+}
+
+.img-container {
+
+    margin-bottom: 30px;
+}
+
+.img-container img {
+
+    width: 60% ;                                /* imagem com 60% (limitamos a imagem) */
+
+}
+
+/*=================POST ASIDE=================*/
+
+.nav-container {
+
+    grid-area: sidebar;                         /* irá delimitar ao que colocamos no #post-container(grid-template-areas: "main sidebar") */
+
+}
+
+#tags-title, #categories-title {                /* estamos dizendo que ambos terão o mesmo estilo utilizamos a ali */
+
+    font-size: 26px; 
+    margin-bottom: 10px;
+    background-color: #141827;
+    color:#FFFFFF;
+    text-align: center;
+    padding: 7px;                               /* espaçamento interno do conteúdo*/
+    font-weight: 300;                           /* peso e intensidade da fonte das letras tags e categorias / Você pode optar por mais fininha ou mais grossa*/ 
+
+}
+
+
+#tag-list, #categories-list {                   /* aproveitamos o mesmo estilo para ambas com uso da, */
+
+    list-style: none;                           /* nenhum estilo nas listas */
+
+}
+
+#tag-list li, #categories-list li {             /* as li */
+
+    margin-bottom: 10px;                        /* espaçar um ítem do outro */
+}
+
+#tag-list a, #categories-list a {               /* link da tag a com cor, transição e bold */
+
+    color: #808080;
+    transition: .5s; 
+    font-weight: bold;
+}
+
+#tag-list a:hover, #categories-list a:hover {   /* hover mudando para um azul clarinho na minha opção */
+
+    color: #20B2FF;
+}
+
+/*=================MOBILE=================*/
+
+@media (max-width:480px) {                      /* Estamos criando uma Media Queries definindo uma largura máxima de 480px ou seja quando for menor que 480px vamos
+                                                /* criar alguns estilos que vão se sobresair aos estilos originais que criamos para nossa página. Assim no mobile estes */ 
+                                                /* estilos vão prevalecer a todos os estilos que criamos anteriormente. */
+
+/*=================HOME=================*/      /* vamos começar estilizando nosso cabeçalho. Como nosso menu tem muitos ítens vamos simplificar deixando somente o icone do blog */
+
+header {
+
+    width: 100%;                                /* largura do header com 100� página para cobrir ele todo */
+
+}
+
+#logo {
+
+    display: block;                             /* logo terá um display block */
+    position: relative;                         /* estamos aqui tirando a position absolute lançada anteriormente*/
+    margin: 0 auto;                             /* margem de zero e automática para centralizar */
+    Left: 0;                                    /* vamos tirar o left (zerar o valor) pois lá em cima temos ele a 9.5% no logo do topo do código */
+    width: 50px;                                /* vamos adicionar uma largura pra ele de 50px */
+
+}
+
+#navbar {                                       /* vamos tirar a navbar */
+
+    display: none;                              /* nenhum */
+
+}
+
+#title-container {                              /* vamos ao título */
+    
+    min-width: 100%;                            /* tinhamos uma largura de 500px lá em cima e agora mudamos para 100% ou seja para tela toda*/
+    margin-top: 20px;
+
+}
+
+#post-container {
+
+    margin-top: 20px;
+
+}
+
+.post-box {
+
+    flex: 100% 1 0;                             /* 100� tela no flex, irá ocupar sempre 100% independente do post */
+    padding: 15px;                              /* 15px em todos os lados. Para ajustar a imagem que ficará para dentro do post. Respiro laterais pois está colado na borda extrema da tela */ 
+    margin: 0;                                  /* vamos tirar a margem deles */ 
+
+}
+
+
+/*=================POST=================*/
+
+#post-container {
+
+    padding: 15px;                                  /* 15px */
+    grid-template-columns: 100%;                    /* não terá mais as colunas divididas, agora as duas irão representar 100% */
+    grid-template-areas: "main"                     /* main  sidebar (main em cima e sidebar embaixo) = um ficará embaixo do outro */
+    "sidebar";
+
+}
+
+.img-container img {
+
+    width: 100%;                                    /* terá agora uma largura de 100% e não mais 60% */ 
+
+}
+
+}
+
+
